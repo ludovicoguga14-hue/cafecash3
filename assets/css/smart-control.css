@@ -1,0 +1,166 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Smart Control — Command Palette
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 11, 8, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 5000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 12vh var(--s-4) var(--s-4);
+    animation: scOverlayIn 0.2s var(--ease-out);
+}
+.sc-overlay.open { display: flex; }
+@keyframes scOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+
+.sc-palette {
+    width: 100%;
+    max-width: 620px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    animation: scPaletteIn 0.3s var(--ease-out);
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+@keyframes scPaletteIn {
+    from { opacity: 0; transform: scale(0.96) translateY(-12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.sc-palette-search {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-4) var(--s-5);
+    border-bottom: 1px solid var(--border);
+}
+.sc-palette-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.sc-palette-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-primary);
+    font-family: inherit;
+}
+.sc-palette-search input::placeholder { color: var(--text-tertiary); }
+.sc-palette-kbd {
+    padding: 3px 8px;
+    background: var(--bg-sunken);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+.sc-palette-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--s-2);
+}
+.sc-palette-body::-webkit-scrollbar { width: 6px; }
+.sc-palette-body::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 3px;
+}
+
+.sc-palette-group {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: var(--s-3) var(--s-3) var(--s-2);
+}
+.sc-palette-item {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: 10px var(--s-3);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: background var(--dur-fast);
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+.sc-palette-item:hover,
+.sc-palette-item.focused {
+    background: var(--accent-soft);
+    color: var(--text-primary);
+}
+.sc-palette-item.focused {
+    background: var(--accent-soft-strong);
+}
+.sc-palette-icon-sm {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background: var(--bg-sunken);
+    border-radius: var(--r-sm);
+    flex-shrink: 0;
+}
+.sc-palette-text { flex: 1; }
+.sc-palette-title { font-weight: 500; }
+.sc-palette-desc {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+.sc-palette-shortcut {
+    padding: 2px 8px;
+    background: var(--bg-sunken);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+.sc-palette-empty {
+    padding: var(--s-8) var(--s-4);
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 13px;
+}
+
+.sc-palette-footer {
+    display: flex;
+    gap: var(--s-4);
+    padding: var(--s-3) var(--s-5);
+    border-top: 1px solid var(--border);
+    background: var(--bg-sunken);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    flex-wrap: wrap;
+}
+.sc-palette-footer kbd {
+    padding: 2px 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    margin: 0 2px;
+}
+
+@media (max-width: 600px) {
+    .sc-overlay { padding: 6vh var(--s-3) var(--s-3); }
+    .sc-palette-search input { font-size: 14px; }
+}
