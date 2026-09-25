@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CafeCash — Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/dashboard.css" />
+<link rel="stylesheet" href="assets/css/ai.css" />
+<link rel="stylesheet" href="assets/css/smart-control.css" />
+</head>
+<body>
+
+<div class="app" id="app">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SIDEBAR
+         ═══════════════════════════════════════════════════════════ -->
+    <aside class="app-sidebar" id="appSidebar">
+        <div class="app-sidebar-brand">
+            <div class="app-brand-mark">☕</div>
+            <div class="app-brand-text">
+                <div class="app-brand-name">CafeCash</div>
+                <div class="app-brand-tag">Business OS</div>
+            </div>
+        </div>
+
+        <nav class="app-nav">
+            <div class="app-nav-section">
+                <div class="app-nav-label">Workspace</div>
+                <a class="app-nav-item active" data-page="dashboard" href="#dashboard">
+                    <span class="app-nav-icon">📊</span>
+                    <span class="app-nav-text">Dashboard</span>
+                </a>
+                <a class="app-nav-item" data-page="sales" href="#sales">
+                    <span class="app-nav-icon">💰</span>
+                    <span class="app-nav-text">Sales</span>
+                    <span class="app-nav-badge hidden" id="navBadgeSales"></span>
+                </a>
+                <a class="app-nav-item" data-page="inventory" href="#inventory">
+                    <span class="app-nav-icon">📦</span>
+                    <span class="app-nav-text">Inventory</span>
+                    <span class="app-nav-badge hidden" id="navBadgeInventory"></span>
+                </a>
+                <a class="app-nav-item" data-page="recipes" href="#recipes">
+                    <span class="app-nav-icon">🍳</span>
+                    <span class="app-nav-text">Recipes</span>
+                </a>
+                <a class="app-nav-item" data-page="waste" href="#waste">
+                    <span class="app-nav-icon">🗑️</span>
+                    <span class="app-nav-text">Waste</span>
+                </a>
+                <a class="app-nav-item" data-page="suppliers" href="#suppliers">
+                    <span class="app-nav-icon">🚚</span>
+                    <span class="app-nav-text">Suppliers</span>
+                </a>
+                <a class="app-nav-item" data-page="reports" href="#reports">
+                    <span class="app-nav-icon">📈</span>
+                    <span class="app-nav-text">Reports</span>
+                </a>
+            </div>
+
+            <div class="app-nav-section">
+                <div class="app-nav-label">Intelligence</div>
+                <a class="app-nav-item" data-page="intelligence" href="#intelligence">
+                    <span class="app-nav-icon">🤖</span>
+                    <span class="app-nav-text">Intelligence</span>
+                    <span class="app-nav-new">NEW</span>
+                </a>
+                <a class="app-nav-item" data-page="smart" href="#smart">
+                    <span class="app-nav-icon">⚡</span>
+                    <span class="app-nav-text">Smart Control</span>
+                </a>
+            </div>
+
+            <div class="app-nav-section">
+                <div class="app-nav-label">Account</div>
+                <a class="app-nav-item" data-page="accessibility" href="#accessibility">
+                    <span class="app-nav-icon">♿</span>
+                    <span class="app-nav-text">Accessibility</span>
+                </a>
+                <a class="app-nav-item" data-page="settings" href="#settings">
+                    <span class="app-nav-icon">⚙️</span>
+                    <span class="app-nav-text">Settings</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Plan badge -->
+        <div class="app-sidebar-plan" id="appSidebarPlan" onclick="openUpgradeModal()">
+            <div class="app-plan-icon" id="planIcon">⭐</div>
+            <div class="app-plan-info">
+                <div class="app-plan-name" id="planName">Basic Plan</div>
+                <div class="app-plan-hint" id="planHint">Upgrade for more</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MAIN
+         ═══════════════════════════════════════════════════════════ -->
+    <main class="app-main">
+
+        <!-- TOP BAR -->
+        <header class="app-topbar">
+            <button class="app-menu-btn" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+
+            <div class="app-topbar-search">
+                <span class="app-search-icon">🔍</span>
+                <input type="text" id="globalSearch" placeholder="Search or press ⌘K to open command palette…" />
+                <kbd class="app-search-kbd">⌘K</kbd>
+            </div>
+
+            <div class="app-topbar-actions">
+                <button class="app-topbar-btn" onclick="openNotifications()" title="Notifications">
+                    🔔
+                    <span class="app-topbar-dot hidden" id="notifDot"></span>
+                </button>
+                <button class="app-topbar-btn" onclick="toggleTheme()" title="Toggle theme" id="themeToggle">
+                    🌙
+                </button>
+                <button class="app-topbar-btn" onclick="openSmartControl()" title="Smart Control (Ctrl+/)">
+                    ⚡
+                </button>
+                <button class="app-user-chip" onclick="openUserMenu()">
+                    <div class="app-user-avatar" id="userAvatar">S</div>
+                    <div class="app-user-info">
+                        <div class="app-user-name" id="userName">Loading…</div>
+                        <div class="app-user-cafe" id="userCafe">—</div>
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <!-- CAFÉ SWITCHER BAR -->
+        <div class="app-cafe-bar">
+            <div class="app-cafe-bar-label">Workspace:</div>
+            <div class="app-cafe-bar-list" id="cafeBarList"></div>
+            <button class="app-cafe-bar-add" onclick="openAddCafe()">
+                <span>＋</span> Add café
+            </button>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div class="app-content" id="appContent">
+            <!-- Injected by JS -->
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     AI PANEL (Intelligence)
+     ═══════════════════════════════════════════════════════════════ -->
+<button class="ai-fab" id="aiFab" onclick="toggleAIPanel()" aria-label="Ask CafeCash">
+    <span class="ai-fab-icon">🤖</span>
+    <span class="ai-fab-label">Ask CafeCash</span>
+</button>
+
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="CafeCash Intelligence">
+    <div class="ai-panel-header">
+        <div class="ai-panel-icon">🤖</div>
+        <div class="ai-panel-info">
+            <div class="ai-panel-title">
+                CafeCash Intelligence
+                <span class="ai-panel-beta">BETA</span>
+            </div>
+            <div class="ai-panel-sub" id="aiPanelSub">Analysing your business</div>
+        </div>
+        <button class="ai-panel-close" onclick="closeAIPanel()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="ai-panel-messages" id="aiPanelMessages"></div>
+
+    <div class="ai-panel-typing hidden" id="aiPanelTyping">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="ai-panel-suggestions" id="aiPanelSuggestions"></div>
+
+    <div class="ai-panel-input">
+        <textarea id="aiPanelInput" class="ai-panel-textarea" placeholder="Ask about sales, stock, profit, waste…" rows="1"></textarea>
+        <button class="ai-panel-send" id="aiPanelSend" disabled aria-label="Send">➤</button>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SMART CONTROL (Command Palette)
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="sc-overlay" id="scOverlay" onclick="if(event.target===this)closeSmartControl()">
+    <div class="sc-palette" role="dialog">
+        <div class="sc-palette-search">
+            <span class="sc-palette-icon">⚡</span>
+            <input type="text" id="scPaletteInput" placeholder="What do you want to do?" autocomplete="off" />
+            <kbd class="sc-palette-kbd">ESC</kbd>
+        </div>
+        <div class="sc-palette-body" id="scPaletteBody">
+            <!-- Injected by JS -->
+        </div>
+        <div class="sc-palette-footer">
+            <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+            <span><kbd>↵</kbd> select</span>
+            <span><kbd>ESC</kbd> close</span>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TOASTS
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MODAL ROOT
+     ═══════════════════════════════════════════════════════════════ -->
+<div id="modalRoot"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════════════ -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="assets/js/firebase-config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/accessibility.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages.js"></script>
+<script src="assets/js/ai-panel.js"></script>
+<script src="assets/js/smart-control.js"></script>
+<script src="assets/js/support.js"></script>
+
+</body>
+</html>
