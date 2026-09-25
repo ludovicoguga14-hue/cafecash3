@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CafeCash — Your café. Your data. Your intelligence.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/landing.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════════════════ -->
+<nav class="ln-nav" id="lnNav">
+    <div class="container ln-nav-inner">
+        <a href="#" class="ln-logo">
+            <img src="assets/images/CafeCash.png" alt="CafeCash logo" class="ln-logo-img" />
+            <span class="ln-logo-text">CafeCash</span>
+        </a>
+
+        <ul class="ln-nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#intelligence">Intelligence</a></li>
+            <li><a href="#workspace">Workspace</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+
+        <div class="ln-nav-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+            <a href="login.html#register" class="btn btn-primary btn-sm">Start Free</a>
+        </div>
+
+        <button class="ln-nav-toggle" id="lnNavToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-hero">
+    <div class="ln-hero-video-wrap">
+        <video class="ln-hero-video" autoplay muted loop playsinline
+               poster="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1920&q=80">
+            <source src="https://cdn.coverr.co/videos/coverr-a-barista-making-coffee-1584/1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="ln-hero-overlay"></div>
+    </div>
+
+    <div class="container ln-hero-content">
+        <div class="ln-hero-badge">
+            <span class="ln-pulse-dot"></span>
+            Born from TUT South Campus · Evolved into CafeCash
+        </div>
+
+        <div class="ln-hero-logo">
+            <img src="assets/images/CafeCash.png" alt="CafeCash" />
+        </div>
+
+        <h1 class="ln-hero-title">
+            Your café.<br>
+            Your data.<br>
+            <span class="ln-hero-accent">Your intelligence.</span>
+        </h1>
+
+        <p class="ln-hero-subtitle">
+            Run sales, inventory, recipes, suppliers, waste and business insights
+            from one intelligent workspace.
+        </p>
+
+        <div class="ln-hero-actions">
+            <a href="login.html#register" class="btn btn-amber btn-lg">Start Free →</a>
+            <a href="#features" class="btn btn-lg ln-btn-glass">Explore CafeCash</a>
+            <a href="login.html" class="btn btn-ghost btn-lg ln-btn-ghost-light">Login</a>
+        </div>
+
+        <div class="ln-hero-stats">
+            <div class="ln-hero-stat">
+                <div class="ln-hero-stat-value" data-count="6">0</div>
+                <div class="ln-hero-stat-label">Core modules</div>
+            </div>
+            <div class="ln-hero-stat-divider"></div>
+            <div class="ln-hero-stat">
+                <div class="ln-hero-stat-value" data-count="11">0</div>
+                <div class="ln-hero-stat-label">Accessibility modes</div>
+            </div>
+            <div class="ln-hero-stat-divider"></div>
+            <div class="ln-hero-stat">
+                <div class="ln-hero-stat-value">∞</div>
+                <div class="ln-hero-stat-label">Cafés per account</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ln-hero-scroll">
+        <span>Scroll to explore</span>
+        <div class="ln-scroll-line"></div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     THE PROBLEM
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-problem" id="problem">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">The reality</span>
+            <h2 class="h2">Running a café shouldn't feel like running five businesses.</h2>
+            <p class="ln-section-lead">
+                Most cafés juggle sales on one system, inventory in a spreadsheet, waste on paper,
+                and reports somewhere else. The result is disconnected data and decisions made on gut feeling.
+            </p>
+        </div>
+
+        <div class="ln-problem-grid">
+            <div class="ln-problem-card">
+                <div class="ln-problem-icon">📊</div>
+                <h3 class="h5">Disconnected sales</h3>
+                <p class="body-sm">Cash register in one place, totals in another, no view of what's actually selling.</p>
+            </div>
+            <div class="ln-problem-card">
+                <div class="ln-problem-icon">📝</div>
+                <h3 class="h5">Spreadsheet inventory</h3>
+                <p class="body-sm">Stock counts that are always a week behind. Reorders happen after you've run out.</p>
+            </div>
+            <div class="ln-problem-card">
+                <div class="ln-problem-icon">🗑️</div>
+                <h3 class="h5">Invisible waste</h3>
+                <p class="body-sm">Food goes in the bin, but nobody knows which products or what it costs.</p>
+            </div>
+            <div class="ln-problem-card">
+                <div class="ln-problem-icon">📉</div>
+                <h3 class="h5">Reports that arrive late</h3>
+                <p class="body-sm">Monthly numbers show what already went wrong — not what to do next.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     THE SOLUTION
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-solution">
+    <div class="container">
+        <div class="ln-solution-inner">
+            <div class="ln-solution-copy">
+                <span class="overline">The solution</span>
+                <h2 class="h2">One workspace. Every part of your café.</h2>
+                <p class="body">
+                    CafeCash brings sales, inventory, recipes, waste, suppliers, and reports into a single
+                    connected system — then adds an intelligence layer that tells you what's happening
+                    and what to do about it.
+                </p>
+
+                <ul class="ln-solution-list">
+                    <li>
+                        <span class="ln-check">✓</span>
+                        <div>
+                            <strong>See everything at once</strong>
+                            <p class="body-sm">Revenue, stock, profit and alerts on one dashboard.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ln-check">✓</span>
+                        <div>
+                            <strong>Act in seconds</strong>
+                            <p class="body-sm">Quick Sale, Add Stock, Record Waste from anywhere via Smart Control.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ln-check">✓</span>
+                        <div>
+                            <strong>Understand, not just track</strong>
+                            <p class="body-sm">CafeCash Intelligence explains trends, waste and forecasts in plain language.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="login.html#register" class="btn btn-primary btn-lg">
+                    Start free — no card required →
+                </a>
+            </div>
+
+            <div class="ln-solution-visual">
+                <div class="ln-mockup">
+                    <div class="ln-mockup-header">
+                        <div class="ln-mockup-dots"><span></span><span></span><span></span></div>
+                        <div class="ln-mockup-title">CafeCash · Dashboard</div>
+                    </div>
+                    <div class="ln-mockup-body">
+                        <div class="ln-mockup-stats">
+                            <div class="ln-mockup-stat">
+                                <div class="ln-mockup-stat-label">Revenue</div>
+                                <div class="ln-mockup-stat-value">R 12,480</div>
+                                <div class="ln-mockup-stat-trend up">▲ 18.2%</div>
+                            </div>
+                            <div class="ln-mockup-stat">
+                                <div class="ln-mockup-stat-label">Profit</div>
+                                <div class="ln-mockup-stat-value">R 4,210</div>
+                                <div class="ln-mockup-stat-trend up">▲ 22.5%</div>
+                            </div>
+                        </div>
+                        <div class="ln-mockup-chart">
+                            <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="lnChartGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#E8A93B" stop-opacity="0.5"/>
+                                        <stop offset="100%" stop-color="#E8A93B" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,70 C30,55 50,60 80,40 C110,25 140,45 170,30 C200,15 230,25 260,10 L300,15 L300,100 L0,100 Z"
+                                      fill="url(#lnChartGrad)"/>
+                                <path d="M0,70 C30,55 50,60 80,40 C110,25 140,45 170,30 C200,15 230,25 260,10 L300,15"
+                                      fill="none" stroke="#E8A93B" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="ln-mockup-alerts">
+                            <div class="ln-mockup-alert danger">
+                                <span>🔴</span> Coffee beans below reorder level
+                            </div>
+                            <div class="ln-mockup-alert warning">
+                                <span>🟠</span> Milk waste up 18% this week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CORE FEATURES
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-features" id="features">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">Core modules</span>
+            <h2 class="h2">Everything your café needs. Nothing it doesn't.</h2>
+        </div>
+
+        <div class="ln-features-grid">
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(232,169,59,0.12); --icon-color: #E8A93B;">💰</div>
+                <h3 class="h5">Sales</h3>
+                <p class="body-sm">Record sales in seconds. Track revenue, profit margins and best sellers in real time.</p>
+            </div>
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(16,185,129,0.12); --icon-color: #10B981;">📦</div>
+                <h3 class="h5">Inventory</h3>
+                <p class="body-sm">Stock levels, reorder alerts, expiry tracking, and total inventory value at a glance.</p>
+            </div>
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(232,93,117,0.12); --icon-color: #E85D75;">🍳</div>
+                <h3 class="h5">Recipes</h3>
+                <p class="body-sm">Build recipes with costed ingredients. See margin per item before you price it.</p>
+            </div>
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(59,130,246,0.12); --icon-color: #3B82F6;">🗑️</div>
+                <h3 class="h5">Waste</h3>
+                <p class="body-sm">Log waste with reasons. Understand where money is literally going in the bin.</p>
+            </div>
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(139,92,246,0.12); --icon-color: #8B5CF6;">🚚</div>
+                <h3 class="h5">Suppliers</h3>
+                <p class="body-sm">Track suppliers, invoices, payment status and outstanding balances.</p>
+            </div>
+            <div class="ln-feature-card">
+                <div class="ln-feature-icon" style="--icon-bg: rgba(6,182,212,0.12); --icon-color: #06B6D4;">📈</div>
+                <h3 class="h5">Reports</h3>
+                <p class="body-sm">Daily, weekly, monthly reports. Export to CSV. Understand growth over time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     INTELLIGENCE
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-intelligence" id="intelligence">
+    <div class="container">
+        <div class="ln-intelligence-inner">
+            <div class="ln-intelligence-copy">
+                <span class="overline">CafeCash Intelligence</span>
+                <h2 class="h2">Not just numbers. Understanding.</h2>
+                <p class="body">
+                    Every other system tells you what happened. CafeCash tells you what's happening,
+                    why it matters, and what to do about it — grounded in your actual business data.
+                </p>
+
+                <div class="ln-intelligence-examples">
+                    <div class="ln-intelligence-example">
+                        <div class="ln-intelligence-example-label">You ask</div>
+                        <div class="ln-intelligence-example-q">"What needs my attention today?"</div>
+                    </div>
+                    <div class="ln-intelligence-example">
+                        <div class="ln-intelligence-example-label">CafeCash Intelligence</div>
+                        <div class="ln-intelligence-example-a">
+                            "Coffee beans are approaching reorder level, milk waste has increased 18% this week,
+                            and beverage sales are trending upward. Want me to walk you through what to do next?"
+                        </div>
+                        <div class="ln-intelligence-example-actions">
+                            <span class="ln-intel-chip">View Inventory</span>
+                            <span class="ln-intel-chip">Investigate Waste</span>
+                            <span class="ln-intel-chip">View Sales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ln-intelligence-visual">
+                <div class="ln-intel-orbit">
+                    <div class="ln-intel-core">🤖</div>
+                    <div class="ln-intel-node" style="--angle: 0deg;">💰</div>
+                    <div class="ln-intel-node" style="--angle: 72deg;">📦</div>
+                    <div class="ln-intel-node" style="--angle: 144deg;">🗑️</div>
+                    <div class="ln-intel-node" style="--angle: 216deg;">📈</div>
+                    <div class="ln-intel-node" style="--angle: 288deg;">🚚</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MULTI-CAFÉ WORKSPACE
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-workspace" id="workspace">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">Multi-café workspace</span>
+            <h2 class="h2">One account. Every café you run.</h2>
+            <p class="ln-section-lead">
+                Switch between cafés without logging out. Each one keeps its own inventory,
+                sales, suppliers and reports — fully isolated.
+            </p>
+        </div>
+
+        <div class="ln-workspace-demo">
+            <div class="ln-workspace-sidebar">
+                <div class="ln-workspace-sidebar-title">CAFÉ WORKSPACES</div>
+
+                <div class="ln-workspace-item active">
+                    <div class="ln-workspace-item-icon">☕</div>
+                    <div class="ln-workspace-item-info">
+                        <div class="ln-workspace-item-name">Campus Café</div>
+                        <div class="ln-workspace-item-sub">R 12,480 today</div>
+                    </div>
+                    <div class="ln-workspace-item-check">✓</div>
+                </div>
+                <div class="ln-workspace-item">
+                    <div class="ln-workspace-item-icon">🥐</div>
+                    <div class="ln-workspace-item-info">
+                        <div class="ln-workspace-item-name">Sunrise Bakery</div>
+                        <div class="ln-workspace-item-sub">R 8,230 today</div>
+                    </div>
+                </div>
+                <div class="ln-workspace-item">
+                    <div class="ln-workspace-item-icon">☕</div>
+                    <div class="ln-workspace-item-info">
+                        <div class="ln-workspace-item-name">Main Café</div>
+                        <div class="ln-workspace-item-sub">R 15,120 today</div>
+                    </div>
+                </div>
+
+                <div class="ln-workspace-add">
+                    <span>＋</span> Add Café
+                </div>
+            </div>
+
+            <div class="ln-workspace-detail">
+                <div class="ln-workspace-detail-header">Campus Café · Overview</div>
+                <div class="ln-workspace-detail-metrics">
+                    <div class="ln-workspace-metric">
+                        <div class="ln-workspace-metric-label">Today</div>
+                        <div class="ln-workspace-metric-value">R 12,480</div>
+                    </div>
+                    <div class="ln-workspace-metric">
+                        <div class="ln-workspace-metric-label">This week</div>
+                        <div class="ln-workspace-metric-value">R 84,210</div>
+                    </div>
+                    <div class="ln-workspace-metric">
+                        <div class="ln-workspace-metric-label">Low stock</div>
+                        <div class="ln-workspace-metric-value warn">3 items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ABOUT US — TEAM + PERSONAS
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-about" id="about">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">About us</span>
+            <h2 class="h2">Built by students. Designed for real cafés.</h2>
+            <p class="ln-section-lead">
+                We're a small team from TUT South Campus who spent months building CafeCash
+                because we saw how much time café owners waste on disconnected tools.
+            </p>
+        </div>
+
+        <div class="ln-about-layout">
+
+            <!-- TEAM COLUMN -->
+            <div class="ln-about-team">
+                <div class="ln-about-column-label">
+                    <span>👥</span> Meet the team
+                </div>
+
+                <div class="ln-team-grid">
+
+                    <!-- Team member 1 -->
+                    <div class="ln-team-card">
+                        <div class="ln-team-photo">
+                            <img src="assets/images/team1.jpg" alt="CafeCash" loading="lazy" />
+                        </div>
+                        <div class="ln-team-info">
+                            <div class="ln-team-name">CafeCash</div>
+                            <div class="ln-team-role">Founder & Full-Stack Developer</div>
+                            <p class="ln-team-bio">
+                                Started CafeCash as a university project. Leads backend architecture,
+                                Firebase integration and product vision.Designed by Jason  & DAvid
+                            </p>
+                            <div class="ln-team-tags">
+                                <span>Backend</span>
+                                <span>Firebase</span>
+                                <span>Product</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team member 2 -->
+                    <div class="ln-team-card">
+                        <div class="ln-team-photo">
+                            <img src="assets/images/team2.jpg" alt="Naledi Mokoena" loading="lazy" />
+                        </div>
+                        <div class="ln-team-info">
+                            <div class="ln-team-name">Research Team</div>
+                            <div class="ln-team-role">Design and Research</div>
+                            <p class="ln-team-bio">
+                                Designed the interface and accessibility system.
+                                Believes software should work for everyone, everywhere.
+                                by Katlego & Masesi & Hilda and best regards from the artists department by Chauke
+                            </p>
+                            <div class="ln-team-tags">
+                                <span>Design</span>
+                                <span>Accessibility</span>
+                                <span>Research</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team member 3 -->
+                    <div class="ln-team-card">
+                        <div class="ln-team-photo">
+                            <img src="assets/images/team3.jpg" alt="Thabo Dlamini" loading="lazy" />
+                        </div>
+                        <div class="ln-team-info">
+                            <div class="ln-team-name">Whole co-operation</div>
+                            <div class="ln-team-role">Definition</div>
+                            <p class="ln-team-bio">
+                                Built the CafeCash Intelligence layer. Focused on turning raw
+                                business data into decisions owners can act on by Mrs Wanga
+                                and best regards from the Mathematics department by Karabo & Luthando
+                            </p>
+                            <div class="ln-team-tags">
+                                <span>AI</span>
+                                <span>Analytics</span>
+                                <span>Forecasting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PERSONAS COLUMN -->
+            <aside class="ln-about-personas">
+                <div class="ln-about-column-label">
+                    <span>🎯</span> Who it's for
+                </div>
+
+                <!-- Persona 1 -->
+                <div class="ln-persona-card">
+                    <div class="ln-persona-header">
+                        <img src="assets/images/persona1.jpg"
+                             alt="Persona: café owner"
+                             class="ln-persona-avatar"
+                             loading="lazy" />
+                        <div>
+                            <div class="ln-persona-name">Amara</div>
+                            <div class="ln-persona-role">Café Owner · 34</div>
+                        </div>
+                    </div>
+                    <p class="ln-persona-quote">
+                        "I open at 6am and close at 8pm. I don't have time to reconcile
+                        five different systems at the end of the day."
+                    </p>
+                    <div class="ln-persona-meta">
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Uses</span>
+                            <span class="ln-persona-meta-value">Sales · Inventory · Reports</span>
+                        </div>
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Needs</span>
+                            <span class="ln-persona-meta-value">Fast daily overview</span>
+                        </div>
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Pain</span>
+                            <span class="ln-persona-meta-value">Disconnected systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="ln-persona-card">
+                    <div class="ln-persona-header">
+                        <img src="assets/images/persona2.jpg"
+                             alt="Persona: bakery manager"
+                             class="ln-persona-avatar"
+                             loading="lazy" />
+                        <div>
+                            <div class="ln-persona-name">Sipho</div>
+                            <div class="ln-persona-role">Bakery Manager · 41</div>
+                        </div>
+                    </div>
+                    <p class="ln-persona-quote">
+                        "I bake at 4am. By noon, half my croissants are waste.
+                        I need to know why and fix it before tomorrow."
+                    </p>
+                    <div class="ln-persona-meta">
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Uses</span>
+                            <span class="ln-persona-meta-value">Production · Waste · Recipes</span>
+                        </div>
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Needs</span>
+                            <span class="ln-persona-meta-value">Waste prediction</span>
+                        </div>
+                        <div class="ln-persona-meta-row">
+                            <span class="ln-persona-meta-label">Pain</span>
+                            <span class="ln-persona-meta-value">Over-baking</span>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ACCESSIBILITY
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-accessibility" id="accessibility">
+    <div class="container">
+        <div class="ln-access-inner">
+            <div class="ln-access-copy">
+                <span class="overline">Accessibility first</span>
+                <h2 class="h2">Built for every person who runs a café.</h2>
+                <p class="body">
+                    Accessibility isn't a checkbox in CafeCash. It's part of the interface,
+                    from text size and contrast to screen reader support and keyboard navigation.
+                </p>
+
+                <div class="ln-access-grid">
+                    <div class="ln-access-item"><span>♿</span> Text size 4 levels</div>
+                    <div class="ln-access-item"><span>🔲</span> High contrast</div>
+                    <div class="ln-access-item"><span>🎬</span> Reduced motion</div>
+                    <div class="ln-access-item"><span>👆</span> Large touch targets</div>
+                    <div class="ln-access-item"><span>⌨️</span> Keyboard navigation</div>
+                    <div class="ln-access-item"><span>🔤</span> Dyslexia font</div>
+                    <div class="ln-access-item"><span>🔊</span> Read aloud</div>
+                    <div class="ln-access-item"><span>🎨</span> Color blind modes</div>
+                </div>
+            </div>
+
+            <div class="ln-access-visual">
+                <div class="ln-access-panel">
+                    <div class="ln-access-panel-header">
+                        <span>♿</span> Accessibility Center
+                    </div>
+                    <div class="ln-access-panel-row">
+                        <span>Text size</span>
+                        <div class="ln-access-slider"><div class="ln-access-slider-fill"></div></div>
+                    </div>
+                    <div class="ln-access-panel-row">
+                        <span>High contrast</span>
+                        <div class="ln-access-toggle on"></div>
+                    </div>
+                    <div class="ln-access-panel-row">
+                        <span>Reduced motion</span>
+                        <div class="ln-access-toggle"></div>
+                    </div>
+                    <div class="ln-access-panel-row">
+                        <span>Dyslexia font</span>
+                        <div class="ln-access-toggle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     TUT TO CAFECASH
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-story">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">The journey</span>
+            <h2 class="h2">From TUT South Campus to a working SaaS product.</h2>
+        </div>
+
+        <div class="ln-timeline">
+            <div class="ln-timeline-item">
+                <div class="ln-timeline-marker"></div>
+                <div class="ln-timeline-content">
+                    <div class="ln-timeline-year">Start</div>
+                    <div class="ln-timeline-title">TUT South Campus</div>
+                    <div class="ln-timeline-desc">Project began as a university research project.</div>
+                </div>
+            </div>
+            <div class="ln-timeline-item">
+                <div class="ln-timeline-marker"></div>
+                <div class="ln-timeline-content">
+                    <div class="ln-timeline-year">Foundation</div>
+                    <div class="ln-timeline-title">Java + Backend Development</div>
+                    <div class="ln-timeline-desc">Core business logic, data structures and APIs.</div>
+                </div>
+            </div>
+            <div class="ln-timeline-item">
+                <div class="ln-timeline-marker"></div>
+                <div class="ln-timeline-content">
+                    <div class="ln-timeline-year">Refinement</div>
+                    <div class="ln-timeline-title">Business System Design</div>
+                    <div class="ln-timeline-desc">Sales, inventory, recipes and supplier workflows.</div>
+                </div>
+            </div>
+            <div class="ln-timeline-item">
+                <div class="ln-timeline-marker"></div>
+                <div class="ln-timeline-content">
+                    <div class="ln-timeline-year">Intelligence</div>
+                    <div class="ln-timeline-title">AI + Accessibility</div>
+                    <div class="ln-timeline-desc">Business insights and inclusive design become core.</div>
+                </div>
+            </div>
+            <div class="ln-timeline-item">
+                <div class="ln-timeline-marker active"></div>
+                <div class="ln-timeline-content">
+                    <div class="ln-timeline-year">Today</div>
+                    <div class="ln-timeline-title">CafeCash</div>
+                    <div class="ln-timeline-desc">A modern SaaS platform for cafés and food businesses.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECURITY
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-security">
+    <div class="container">
+        <div class="ln-security-inner">
+            <div class="ln-security-copy">
+                <span class="overline">Security architecture</span>
+                <h2 class="h2">Your business data, protected.</h2>
+                <p class="body">
+                    CafeCash uses Firebase Authentication for identity and enforces
+                    café-level data isolation at the backend, so each business's data stays separate.
+                </p>
+
+                <ul class="ln-security-list">
+                    <li><span>🔐</span> Firebase Authentication with email & password</li>
+                    <li><span>🛡️</span> Server-side authorization on every request</li>
+                    <li><span>🏪</span> Café-level data isolation enforced technically</li>
+                    <li><span>🔑</span> Role-based permissions for team access</li>
+                    <li><span>📋</span> Session validation and secure token handling</li>
+                    <li><span>🚨</span> Firestore security rules and app protections</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PRICING
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-pricing" id="pricing">
+    <div class="container">
+        <div class="ln-section-header">
+            <span class="overline">Plans</span>
+            <h2 class="h2">Start free. Upgrade when you're ready for more.</h2>
+        </div>
+
+        <div class="ln-pricing-grid">
+            <div class="ln-pricing-card">
+                <div class="ln-pricing-name">Basic</div>
+                <div class="ln-pricing-price">
+                    <span class="ln-pricing-currency">R</span>
+                    <span class="ln-pricing-amount">69.99</span>
+                    <span class="ln-pricing-period">/ Month</span>
+                </div>
+                <div class="ln-pricing-tagline">Manage your café.</div>
+                <ul class="ln-pricing-list">
+                    <li><span class="ln-pricing-check">✓</span> Sales & Inventory</li>
+                    <li><span class="ln-pricing-check">✓</span> Recipes & Waste tracking</li>
+                    <li><span class="ln-pricing-check">✓</span> Suppliers & basic reports</li>
+                    <li><span class="ln-pricing-check">✓</span> Core accessibility</li>
+                    <li><span class="ln-pricing-check">✓</span> One café workspace</li>
+                    <li><span class="ln-pricing-check">✓</span> Basic Smart Control</li>
+                </ul>
+                <a href="login.html#register" class="btn btn-secondary btn-lg" style="width:100%;">Start Free</a>
+            </div>
+
+            <div class="ln-pricing-card featured">
+                <div class="ln-pricing-badge">Most popular</div>
+                <div class="ln-pricing-name">Premium</div>
+                <div class="ln-pricing-price">
+                    <span class="ln-pricing-currency">R</span>
+                    <span class="ln-pricing-amount">99.99</span>
+                    <span class="ln-pricing-period">/ month</span>
+                </div>
+                <div class="ln-pricing-tagline">Understand your café.</div>
+                <ul class="ln-pricing-list">
+                    <li><span class="ln-pricing-check">✓</span> Everything in Basic</li>
+                    <li><span class="ln-pricing-check">✓</span> Full Intelligence assistant</li>
+                    <li><span class="ln-pricing-check">✓</span> Stock forecasting & insights</li>
+                    <li><span class="ln-pricing-check">✓</span> Multi-café workspace</li>
+                    <li><span class="ln-pricing-check">✓</span> Advanced reports & exports</li>
+                    <li><span class="ln-pricing-check">✓</span> Advanced personalization</li>
+                    <li><span class="ln-pricing-check">✓</span> Priority support</li>
+                </ul>
+                <a href="login.html#register" class="btn btn-amber btn-lg" style="width:100%;">Start 30-day trial →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════════ -->
+<section class="ln-section ln-cta">
+    <div class="container">
+        <div class="ln-cta-inner">
+            <h2 class="h2">Run your café smarter with CafeCash.</h2>
+            <p class="body">From the first coffee to the last croissant — one workspace for everything.</p>
+            <div class="ln-cta-actions">
+                <a href="login.html#register" class="btn btn-amber btn-lg">Start Free →</a>
+                <a href="#features" class="btn ln-btn-glass btn-lg">Explore Features</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="ln-footer">
+    <div class="container">
+        <div class="ln-footer-inner">
+            <div class="ln-footer-brand">
+                <div class="ln-footer-logo">
+                    <img src="assets/images/CafeCash.png" alt="CafeCash" class="ln-footer-logo-img" />
+                    <span>CafeCash</span>
+                </div>
+                <p class="body-sm">The intelligent workspace for cafés and food businesses.</p>
+                <p class="caption">Born from a TUT South Campus project.</p>
+            </div>
+            <div class="ln-footer-cols">
+                <div class="ln-footer-col">
+                    <div class="ln-footer-col-title">Product</div>
+                    <a href="#features">Features</a>
+                    <a href="#intelligence">Intelligence</a>
+                    <a href="#workspace">Multi-Café</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <div class="ln-footer-col">
+                    <div class="ln-footer-col-title">Account</div>
+                    <a href="login.html">Login</a>
+                    <a href="login.html#register">Sign up</a>
+                    <a href="#accessibility">Accessibility</a>
+                </div>
+                <div class="ln-footer-col">
+                    <div class="ln-footer-col-title">Company</div>
+                    <a href="#security">Security</a>
+                    <a href="#about">About us</a>
+                    <a href="#problem">Our story</a>
+                </div>
+            </div>
+        </div>
+        <div class="ln-footer-bottom">
+            <div class="caption">© 2025 CafeCash. All rights reserved.</div>
+            <div class="caption">Made with ☕ from South Africa</div>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/landing.js"></script>
+</body>
+</html>
