@@ -1,3 +1,8 @@
+/**
+ * CafeCash Authentication
+ * Handles: Login, Register, Google, Apple, Backend sync
+ */
+
 (function () {
     'use strict';
 
@@ -9,10 +14,10 @@
 
     const $ = (id) => document.getElementById(id);
 
-    function showError(msg) {
+    function showError(message) {
         const el = $('authError');
-        if (!el) { console.error(msg); return; }
-        el.textContent = msg;
+        if (!el) { console.error('Auth error:', message); return; }
+        el.textContent = message;
         el.classList.add('show');
     }
 
@@ -31,19 +36,39 @@
 
     window.switchAuthMode = function (newMode) {
         mode = newMode;
-        document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === newMode));
+        document.querySelectorAll('.auth-tab').forEach(t => {
+            t.classList.toggle('active', t.dataset.mode === newMode);
+        });
 
         const isRegister = newMode === 'register';
         $('nameField').style.display = isRegister ? '' : 'none';
         $('universityField').style.display = isRegister ? '' : 'none';
         $('cafeteriaField').style.display = isRegister ? '' : 'none';
         $('authTitle').textContent = isRegister ? 'Create your account' : 'Welcome back';
-        $('authSubtitle').textContent = isRegister ? 'Set up your café in 30 seconds' : 'Sign in to CafeCash';
+        $('authSubtitle').textContent = isRegister
+            ? 'Set up your café workspace in under 30 seconds'
+            : 'Sign in to your CafeCash account';
         $('authSubmit').textContent = isRegister ? 'Create account' : 'Sign in';
+
         hideError();
     };
 
+    // ═══════════════════════════════════════════════════════════════
+    // ALWAYS GET FRESH TOKEN — verified fix from AI insight
+    // ═══════════════════════════════════════════════════════════════
+    async function getFreshFirebaseToken(user) {
+        if (!user) throw new Error('Firebase user was not found.');
+        const idToken = await user.getIdToken(true);
+        if (!idToken) throw new Error('Firebase did not return an ID token.');
+        console.log('✅ Fresh Firebase ID token obtained');
+        console.log('Firebase UID:', user.uid);
+        console.log('Token length:', idToken.length);
+        return idToken;
+    }
+
     async function syncWithBackend(idToken, payload) {
+        console.log('📤 Sending to backend with token length:', idToken.length);
+
         const res = await fetch(API_BASE + '/auth/sync', {
             method: 'POST',
             headers: {
@@ -55,22 +80,25 @@
 
         let data;
         try { data = await res.json(); }
-        catch { throw new Error('Backend did not respond correctly'); }
+        catch { throw new Error('Backend returned invalid response.'); }
 
         if (!res.ok || data.success === false) {
+            console.error('❌ Backend responded:', res.status, data);
             throw new Error(data.error || 'Backend error: HTTP ' + res.status);
         }
         return data;
     }
 
     function saveSession(idToken, user) {
+        if (!idToken) throw new Error('No ID token to save.');
         localStorage.setItem('cafecash_token', idToken);
         sessionStorage.setItem('cafecash_user', JSON.stringify(user));
+        console.log('✅ Session saved');
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-
+        e.stopPropagation();
         hideError();
 
         const email = ($('email')?.value || '').trim();
@@ -101,11 +129,10 @@
                 }
 
                 const firebaseUser = credential.user;
-                const idToken = await firebaseUser.getIdToken(true);
-
                 console.log('✅ Firebase login worked');
-                console.log('UID:', firebaseUser.uid);
-                console.log('Token length:', idToken.length);
+
+                // Always get a fresh token
+                const idToken = await getFreshFirebaseToken(firebaseUser);
 
                 const payload = { name: name || firebaseUser.displayName };
                 if (mode === 'register') {
@@ -128,8 +155,8 @@
                 else if (msg.includes('weak-password')) msg = 'Password too weak.';
                 else if (msg.includes('invalid-email')) msg = 'Invalid email address';
                 else if (msg.includes('network')) msg = 'Network error. Check internet connection.';
-                else if (msg.includes('Failed to fetch') || msg.includes('Backend')) {
-                    msg = 'Could not reach backend. Make sure it is running.';
+                else if (msg.includes('Failed to fetch') || msg.includes('backend')) {
+                    msg = 'Firebase login worked, but CafeCash could not connect to the backend. Please try again.';
                 }
 
                 showError(msg);
@@ -137,6 +164,46 @@
             }
         })();
     }
+
+    window.handleGoogleSignIn = async function () {
+        hideError();
+        if (typeof firebase === 'undefined' || !firebase.auth) {
+            return showError('Firebase not loaded.');
+        }
+        try {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            const result = await firebase.auth().signInWithPopup(provider);
+            const firebaseUser = result.user;
+            const idToken = await getFreshFirebaseToken(firebaseUser);
+            const syncData = await syncWithBackend(idToken, { name: firebaseUser.displayName });
+            saveSession(idToken, syncData.data);
+            window.location.href = 'dashboard.html';
+        } catch (err) {
+            if (err.code === 'auth/popup-closed-by-user') return;
+            console.error('Google sign-in error:', err);
+            showError(err.message || 'Google sign-in failed');
+        }
+    };
+
+    window.handleAppleSignIn = async function () {
+        hideError();
+        if (typeof firebase === 'undefined' || !firebase.auth) {
+            return showError('Firebase not loaded.');
+        }
+        try {
+            const provider = new firebase.auth.OAuthProvider('apple.com');
+            const result = await firebase.auth().signInWithPopup(provider);
+            const firebaseUser = result.user;
+            const idToken = await getFreshFirebaseToken(firebaseUser);
+            const syncData = await syncWithBackend(idToken, { name: firebaseUser.displayName });
+            saveSession(idToken, syncData.data);
+            window.location.href = 'dashboard.html';
+        } catch (err) {
+            if (err.code === 'auth/popup-closed-by-user') return;
+            console.error('Apple sign-in error:', err);
+            showError(err.message || 'Apple sign-in failed');
+        }
+    };
 
     function init() {
         $('authForm')?.addEventListener('submit', handleSubmit);
